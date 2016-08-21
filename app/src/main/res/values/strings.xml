@@ -1,0 +1,18 @@
+<resources>
+	<string name="app_name">Storage</string>
+	<string name="button_upload">Upload</string>
+	<string name="button_download">Download</string>
+	<string name="delete_file">Delete file</string>
+	<string name="download_in_memory">Download in memory</string>
+	<string name="download_in_file">Download in file</string>
+	<string name="download_via_url">Download via url</string>
+	<string name="upload_from_memory">Upload from memory</string>
+	<string name="upload_from_stream">Upload from stream</string>
+	<string name="upload_from_file">Upload from file</string>
+	<string name="upload_resume">Resume upload</string>
+	<string name="upload_paused">Upload is paused</string>
+	<string name="metadata_get">Get metadata</string>
+	<string name="metadata_update">Update metadata</string>
+	<string name="success">Success</string>
+	<string name="loading">Loading…</string>
+</resources>
