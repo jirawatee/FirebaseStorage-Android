@@ -28,7 +28,6 @@
 
 		<Button
 			style="?android:attr/button"
-			android:id="@+id/button_upload"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
@@ -37,7 +36,6 @@
 
 		<Button
 			style="?android:attr/button"
-			android:id="@+id/button_download"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"

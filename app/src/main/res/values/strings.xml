@@ -13,6 +13,5 @@
 	<string name="upload_paused">Upload is paused</string>
 	<string name="metadata_get">Get metadata</string>
 	<string name="metadata_update">Update metadata</string>
-	<string name="success">Success</string>
 	<string name="loading">Loading…</string>
 </resources>
