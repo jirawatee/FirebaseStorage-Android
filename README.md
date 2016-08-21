@@ -25,4 +25,4 @@ Firebase Storage code guideline for Android developers
 </table>
 
 ## Blog
-[Firebase Storage will release on August 22nd, 2016](https://medium.com/@jirawatee/)
+[Firebase Storage will be released on August 22nd, 2016](https://medium.com/@jirawatee/)
