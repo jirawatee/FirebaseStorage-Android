@@ -49,9 +49,9 @@ public class Helper {
 		mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 	}
 
-	public static void setProgress(int i) {
-		mProgressDialog.setProgress(i);
-	}
+		public static void setProgress(int i) {
+			mProgressDialog.setProgress(i);
+		}
 
 	public static void dismissProgressDialog() {
 		if (mProgressDialog != null && mProgressDialog.isShowing()) {

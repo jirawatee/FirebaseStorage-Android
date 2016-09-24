@@ -35,8 +35,7 @@ public class DownloadActivity extends AppCompatActivity implements View.OnClickL
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_download);
 		bindWidget();
-		FirebaseStorage storage = FirebaseStorage.getInstance();
-		StorageReference storageRef = storage.getReference();
+		StorageReference storageRef = FirebaseStorage.getInstance().getReference();
 		imageRef = storageRef.child("photos/kaizen.png");
 	}
 

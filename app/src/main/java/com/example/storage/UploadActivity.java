@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.example.storage.util.Helper;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -19,6 +21,7 @@ import com.google.firebase.storage.OnPausedListener;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,6 +29,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class UploadActivity extends AppCompatActivity implements View.OnClickListener{
+	private static final String TAG = "UploadActivity";
 	private static final int RC_UPLOAD_STREAM = 101;
 	private static final int RC_UPLOAD_FILE = 102;
 	private ImageView mImageView;
@@ -36,12 +40,16 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_simple);
+		setContentView(R.layout.activity_upload);
 		bindWidget();
-		FirebaseStorage storage = FirebaseStorage.getInstance();
-		StorageReference storageRef = storage.getReference();
+
+		StorageReference storageRef = FirebaseStorage.getInstance().getReference();
 		folderRef = storageRef.child("photos");
 		imageRef = folderRef.child("firebase.png");
+
+		Log.d(TAG, imageRef.getPath());
+		Log.e(TAG, imageRef.getParent().getPath());
+
 	}
 
 	@Override
@@ -150,6 +158,8 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 	private void uploadFromFile(String path) {
 		Uri file = Uri.fromFile(new File(path));
 		StorageReference imageRef = folderRef.child(file.getLastPathSegment());
+		//StorageMetadata metadata = new StorageMetadata.Builder().setContentType("image/jpg").build();
+		//UploadTask uploadTask = imageRef.putFile(file, metadata);
 		mUploadTask = imageRef.putFile(file);
 
 		Helper.initProgressDialog(this);
@@ -166,9 +176,6 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 			}
 		});
 		Helper.mProgressDialog.show();
-
-		//StorageMetadata metadata = new StorageMetadata.Builder().setContentType("image/jpg").build();
-		//UploadTask uploadTask = imageRef.putFile(file, metadata);
 
 		mUploadTask.addOnFailureListener(new OnFailureListener() {
 			@Override
