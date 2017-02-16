@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -64,10 +63,8 @@ public class MainActivity extends AppCompatActivity {
 				hasWriteExternalStoragePermission = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
 				if (hasWriteExternalStoragePermission == PackageManager.PERMISSION_GRANTED) {
 					if (requestCode == RC_STORAGE_PERMS1) {
-						Log.e("RC_STORAGE_PERMS", RC_STORAGE_PERMS1 + "...");
 						startActivity(new Intent(this, UploadActivity.class));
 					} else {
-						Log.e("RC_STORAGE_PERMS", RC_STORAGE_PERMS2 + "...");
 						startActivity(new Intent(this, DownloadActivity.class));
 					}
 				} else {

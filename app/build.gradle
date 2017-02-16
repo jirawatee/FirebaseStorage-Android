@@ -5,7 +5,7 @@ android {
 	buildToolsVersion "25.0.2"
 	defaultConfig {
 		applicationId "com.example.storage"
-		minSdkVersion 17
+		minSdkVersion 25
 		targetSdkVersion 25
 		versionCode 1
 		versionName "1.0"
@@ -13,13 +13,14 @@ android {
 	buildTypes {
 		release {
 			minifyEnabled true
+			shrinkResources true
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 		}
 	}
 }
 
 dependencies {
-	compile 'com.android.support:appcompat-v7:25.1.0'
-	compile 'com.google.firebase:firebase-storage:10.0.1'
+	compile 'com.android.support:appcompat-v7:25.1.1'
+	compile 'com.google.firebase:firebase-storage:10.2.0'
 }
 apply plugin: 'com.google.gms.google-services'
