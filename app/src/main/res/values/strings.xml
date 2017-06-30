@@ -14,4 +14,6 @@
 	<string name="metadata_get">Get metadata</string>
 	<string name="metadata_update">Update metadata</string>
 	<string name="loading">Loading…</string>
+
+	<string name="cloud_storage">Cloud Storage</string>
 </resources>

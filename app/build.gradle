@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
 	compileSdkVersion 25
-	buildToolsVersion "25.0.2"
+	buildToolsVersion "26.0.0"
 	defaultConfig {
 		applicationId "com.example.storage"
 		minSdkVersion 25
@@ -14,13 +14,19 @@ android {
 		release {
 			minifyEnabled true
 			shrinkResources true
-			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+		}
+		debug {
+			splits.abi.enable = false
+			splits.density.enable = false
+			aaptOptions.cruncherEnabled = false
 		}
 	}
 }
 
 dependencies {
-	compile 'com.android.support:appcompat-v7:25.1.1'
-	compile 'com.google.firebase:firebase-storage:10.2.0'
+	compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+	compile "com.google.firebase:firebase-storage:$firebaseLibraryVersion"
+	compile 'com.github.bumptech.glide:glide:3.7.0'
 }
 apply plugin: 'com.google.gms.google-services'

@@ -35,8 +35,15 @@ public class DownloadActivity extends AppCompatActivity implements View.OnClickL
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_download);
 		bindWidget();
-		StorageReference storageRef = FirebaseStorage.getInstance().getReference();
-		imageRef = storageRef.child("photos/kaizen.png");
+		FirebaseStorage storage = FirebaseStorage.getInstance();
+		//FirebaseStorage storage = FirebaseStorage.getInstance("gs://jirawatee-eastern");
+		//FirebaseStorage storage = FirebaseStorage.getInstance("gs://jirawatee-northeastern");
+		//FirebaseStorage storage = FirebaseStorage.getInstance("gs://jirawatee-europe");
+		//FirebaseStorage storage = FirebaseStorage.getInstance("gs://jirawatee-easternus");
+		//FirebaseStorage storage = FirebaseStorage.getInstance("gs://jirawatee-europeunion");
+
+		StorageReference storageRef = storage.getReference();
+		imageRef = storageRef.child("photos/IMG_20170129_151813.jpg");
 	}
 
 	@Override

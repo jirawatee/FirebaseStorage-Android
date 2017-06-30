@@ -12,15 +12,18 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 	private static final int RC_STORAGE_PERMS1 = 101;
 	private static final int RC_STORAGE_PERMS2 = 102;
-	private int hasWriteExternalStoragePermission;
+	private int hasWriteExtStorePMS;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		findViewById(R.id.btn_upload).setOnClickListener(this);
+		findViewById(R.id.btn_download).setOnClickListener(this);
+		findViewById(R.id.btn_cloud_storage).setOnClickListener(this);
 	}
 
 	@Override
@@ -60,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
 		switch (requestCode) {
 			case RC_STORAGE_PERMS1:
 			case RC_STORAGE_PERMS2:
-				hasWriteExternalStoragePermission = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
-				if (hasWriteExternalStoragePermission == PackageManager.PERMISSION_GRANTED) {
+				hasWriteExtStorePMS = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+				if (hasWriteExtStorePMS == PackageManager.PERMISSION_GRANTED) {
 					if (requestCode == RC_STORAGE_PERMS1) {
 						startActivity(new Intent(this, UploadActivity.class));
 					} else {
@@ -74,21 +77,28 @@ public class MainActivity extends AppCompatActivity {
 		}
 	}
 
-	public void gotoUpload(View view) {
-		hasWriteExternalStoragePermission = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
-		if (hasWriteExternalStoragePermission == PackageManager.PERMISSION_GRANTED) {
-			startActivity(new Intent(this, UploadActivity.class));
-		} else {
-			ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, RC_STORAGE_PERMS1);
-		}
-	}
-
-	public void gotoDownload(View view) {
-		hasWriteExternalStoragePermission = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
-		if (hasWriteExternalStoragePermission == PackageManager.PERMISSION_GRANTED) {
-			startActivity(new Intent(this, DownloadActivity.class));
-		} else {
-			ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, RC_STORAGE_PERMS2);
+	@Override
+	public void onClick(View view) {
+		switch (view.getId()) {
+			case R.id.btn_upload:
+				hasWriteExtStorePMS = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+				if (hasWriteExtStorePMS == PackageManager.PERMISSION_GRANTED) {
+					startActivity(new Intent(this, UploadActivity.class));
+				} else {
+					ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, RC_STORAGE_PERMS1);
+				}
+				break;
+			case R.id.btn_download:
+				hasWriteExtStorePMS = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+				if (hasWriteExtStorePMS == PackageManager.PERMISSION_GRANTED) {
+					startActivity(new Intent(this, DownloadActivity.class));
+				} else {
+					ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, RC_STORAGE_PERMS2);
+				}
+				break;
+			case R.id.btn_cloud_storage:
+				startActivity(new Intent(this, CloudStorageActivity.class));
+				break;
 		}
 	}
 }

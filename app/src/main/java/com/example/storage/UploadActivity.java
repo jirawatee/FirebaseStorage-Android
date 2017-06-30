@@ -43,12 +43,18 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 		setContentView(R.layout.activity_upload);
 		bindWidget();
 
-		StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+		FirebaseStorage storage = FirebaseStorage.getInstance();
+		//FirebaseStorage storage = FirebaseStorage.getInstance("gs://jirawatee-eastern");
+		//FirebaseStorage storage = FirebaseStorage.getInstance("gs://jirawatee-northeastern");
+		//FirebaseStorage storage = FirebaseStorage.getInstance("gs://jirawatee-europe");
+		//FirebaseStorage storage = FirebaseStorage.getInstance("gs://jirawatee-easternus");
+		//FirebaseStorage storage = FirebaseStorage.getInstance("gs://jirawatee-europeunion");
+		StorageReference storageRef = storage.getReference();
 		folderRef = storageRef.child("photos");
 		imageRef = folderRef.child("firebase.png");
 
 		Log.d(TAG, imageRef.getPath());
-		Log.e(TAG, imageRef.getParent().getPath());
+		Log.d(TAG, imageRef.getParent().getPath());
 
 	}
 

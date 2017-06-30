@@ -26,21 +26,28 @@
 		android:orientation="horizontal">
 
 		<Button
+			android:id="@+id/btn_upload"
 			style="?android:attr/button"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
-			android:text="@string/button_upload"
-			android:onClick="gotoUpload"/>
+			android:text="@string/button_upload"/>
 
 		<Button
+			android:id="@+id/btn_download"
 			style="?android:attr/button"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
-			android:text="@string/button_download"
-			android:onClick="gotoDownload"/>
+			android:text="@string/button_download"/>
 
 	</LinearLayout>
+
+	<Button
+		android:id="@+id/btn_cloud_storage"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/zone_middle"
+		android:text="@string/cloud_storage"/>
 
 </RelativeLayout>
