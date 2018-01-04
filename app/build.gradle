@@ -2,15 +2,17 @@ apply plugin: 'com.android.application'
 
 android {
 	compileSdkVersion compileAndTargetSdk
-	buildToolsVersion '26.0.2'
+	buildToolsVersion '27.0.3'
+
 	defaultConfig {
 		applicationId "com.example.storage"
-		minSdkVersion 26
+		minSdkVersion compileAndTargetSdk
 		targetSdkVersion compileAndTargetSdk
 		versionCode 1
 		versionName '1.0'
 		resConfigs('en', 'xxxhdpi')
 	}
+
 	buildTypes {
 		release {
 			minifyEnabled true
@@ -26,7 +28,9 @@ android {
 }
 
 dependencies {
-	implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+	implementation ("com.android.support:appcompat-v7:$supportLibraryVersion") {
+		force = true
+	}
 	implementation "com.google.firebase:firebase-storage:$firebaseLibraryVersion"
 	implementation "com.github.bumptech.glide:glide:$glideLibraryVersion"
 	annotationProcessor "com.github.bumptech.glide:compiler:$glideLibraryVersion"
