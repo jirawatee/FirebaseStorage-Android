@@ -78,8 +78,8 @@ public class DownloadActivity extends AppCompatActivity implements View.OnClickL
 	}
 
 	private void bindWidget() {
-		mImageView = (ImageView) findViewById(R.id.imageview);
-		mTextView = (TextView) findViewById(R.id.textview);
+		mImageView = findViewById(R.id.imageview);
+		mTextView = findViewById(R.id.textview);
 		findViewById(R.id.button_download_in_memory).setOnClickListener(this);
 		findViewById(R.id.button_download_in_file).setOnClickListener(this);
 		findViewById(R.id.button_download_via_url).setOnClickListener(this);

@@ -27,7 +27,7 @@ public class CloudStorageActivity extends AppCompatActivity implements View.OnCl
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_cloud_storage);
-		mImageView = (ImageView) findViewById(R.id.imv);
+		mImageView = findViewById(R.id.imv);
 		findViewById(R.id.btn_upload).setOnClickListener(this);
 
 		// Get instance and specify regional

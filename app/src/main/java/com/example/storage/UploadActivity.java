@@ -102,8 +102,8 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 	}
 
 	private void bindWidget() {
-		mImageView = (ImageView) findViewById(R.id.imageview);
-		mTextView = (TextView) findViewById(R.id.textview);
+		mImageView = findViewById(R.id.imageview);
+		mTextView = findViewById(R.id.textview);
 		findViewById(R.id.button_upload_from_memory).setOnClickListener(this);
 		findViewById(R.id.button_upload_from_stream).setOnClickListener(this);
 		findViewById(R.id.button_upload_from_file).setOnClickListener(this);
