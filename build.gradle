@@ -22,7 +22,7 @@ task clean(type: Delete) {
 
 ext {
 	supportLibraryVersion = '27.1.0'
-	firebaseLibraryVersion = '11.8.0'
+	firebaseLibraryVersion = '12.0.0'
 	glideLibraryVersion = '4.6.1'
 	compileAndTargetSdk = 27
 }
