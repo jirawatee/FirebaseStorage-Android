@@ -132,7 +132,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 			public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 				// taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
 				Helper.dismissDialog();
-				mTextView.setText(taskSnapshot.getDownloadUrl().toString());
+
+				imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+					@Override
+					public void onSuccess(Uri uri) {
+						mTextView.setText(uri.toString());
+					}
+				});
 			}
 		});
 	}
@@ -156,14 +162,19 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 			@Override
 			public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 				Helper.dismissDialog();
-				mTextView.setText(taskSnapshot.getDownloadUrl().toString());
+				imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+					@Override
+					public void onSuccess(Uri uri) {
+						mTextView.setText(uri.toString());
+					}
+				});
 			}
 		});
 	}
 
 	private void uploadFromFile(String path) {
 		Uri file = Uri.fromFile(new File(path));
-		StorageReference imageRef = folderRef.child(file.getLastPathSegment());
+		final StorageReference imageRef = folderRef.child(file.getLastPathSegment());
 		//StorageMetadata metadata = new StorageMetadata.Builder().setContentType("image/jpg").build();
 		//UploadTask uploadTask = imageRef.putFile(file, metadata);
 		mUploadTask = imageRef.putFile(file);
@@ -194,7 +205,12 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 			public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 				Helper.dismissProgressDialog();
 				findViewById(R.id.button_upload_resume).setVisibility(View.GONE);
-				mTextView.setText(taskSnapshot.getDownloadUrl().toString());
+				imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+					@Override
+					public void onSuccess(Uri uri) {
+						mTextView.setText(uri.toString());
+					}
+				});
 			}
 		}).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
 			@Override
