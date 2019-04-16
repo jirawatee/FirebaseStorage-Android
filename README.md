@@ -2,8 +2,7 @@
 Firebase Storage code guideline for Android developers
 
 ## Prerequisites
-* Supported Android 4.0.1 (Ice Cream Sandwich) or newer
-* Firebase Storage SDK 16.1.0 or newer
+* Supported Android 4.1 or newer
 * Android Studio 3.3.2 or higher
 * google-services.json in app-level folder
 
