@@ -21,7 +21,6 @@ task clean(type: Delete) {
 }
 
 ext {
-	supportLibraryVersion = '28.0.0'
 	glideLibraryVersion = '4.9.0'
-	compileAndTargetSdk = 28
+	compileAndTargetSdk = 29
 }
