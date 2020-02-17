@@ -4,8 +4,8 @@ buildscript {
 		jcenter()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:3.5.0'
-		classpath 'com.google.gms:google-services:4.3.2'
+		classpath 'com.android.tools.build:gradle:3.5.3'
+		classpath 'com.google.gms:google-services:4.3.3'
 	}
 }
 
@@ -21,6 +21,6 @@ task clean(type: Delete) {
 }
 
 ext {
-	glideLibraryVersion = '4.9.0'
+	glideLibraryVersion = '4.11.0'
 	compileAndTargetSdk = 29
 }
