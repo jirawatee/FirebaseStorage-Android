@@ -6,11 +6,12 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.storage.util.Helper;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -43,7 +44,7 @@ public class DownloadActivity extends AppCompatActivity implements View.OnClickL
 		//FirebaseStorage storage = FirebaseStorage.getInstance("gs://jirawatee-europeunion");
 
 		StorageReference storageRef = storage.getReference();
-		imageRef = storageRef.child("photos/IMG_20170129_151813.jpg");
+		imageRef = storageRef.child("photos/kaizen.png");
 	}
 
 	@Override
